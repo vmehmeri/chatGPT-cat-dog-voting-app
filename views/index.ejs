@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cat vs Dog Voting</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Which do you prefer: cats or dogs?</h1>
+    <div id="pet-images">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Sleeping_cat_on_her_back.jpg/640px-Sleeping_cat_on_her_back.jpg" alt="A picture of a cat">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Dog_%28Canis_lupus_familiaris%29_%283%29.jpg/640px-Dog_%28Canis_lupus_familiaris%29_%283%29.jpg" alt="A picture of a dog">
+    </div>
+    <form id="vote-form">
+      <label>
+        <input type="radio" name="pet" value="cat" required> Cat
+      </label>
+      <label>
+        <input type="radio" name="pet" value="dog" required> Dog
+      </label>
+      <button type="submit">Vote</button>
+    </form>
+    <div id="vote-count">
+      <p>Cat votes: <span id="cat-votes"><%= catVotes %></span></p>
+      <p>Dog votes: <span id="dog-votes"><%= dogVotes %></span></p>
+    </div>
+  </body>
+</html>
+<script>
+  const form = document.getElementById('vote-form');
+  const catVotesEl = document.getElementById('cat-votes');
+  const dogVotesEl = document.getElementById('dog-votes');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const pet = formData.get('pet');
+    fetch('/vote', {
+      method: 'POST',
+      body: JSON.stringify({ pet }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        catVotesEl.innerText = data.catVotes;
+        dogVotesEl.innerText = data.dogVotes;
+      });
+  });
+</script>

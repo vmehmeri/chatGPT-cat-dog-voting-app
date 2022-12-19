@@ -1,0 +1,60 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  label {
+    margin: 0 10px;
+  }
+  
+  button {
+    background-color: #00b8d4;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  #pet-images img {
+    width: 250px;
+    height: 250px;
+  }
+  
+  button:hover {
+    background-color: #0095c8;
+  }
+  
+  #vote-count {
+    margin: 20px 0;
+  }
+  
+  #vote-count p {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  #vote-count span {
+    font-weight: bold;
+  }
+
+ 
+
+  
+  
+  
