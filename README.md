@@ -20,8 +20,14 @@ To deploy to Cloud Run:
 
 ```gcloud run deploy --image gcr.io/PROJECT_ID/cat-dog-voting:latest --platform managed```
 
+## Important things to note
+First, some caveats:
 
-## ChatGPT
+1. ChatGPT gives you exactly what you asked for. What that means is that sometimes it will tell you how to update the code to introduce a new feature, but not in a way that guarantees it won't break things elsewhere in the code (in fact, that happened more than once here). That being said, if you then ask to fix whatever it was that it broke, it will offer a fix that is almost always very accurate.
+2. ChatGPT will obviously not give you something that follows the best practices in terms of security and everything else you may (or should) care about. Proceed with caution when doing something similar.
+3. Some level of human knowledge is important here. Being a developer myself, it's easier for me to construct a prompt that will give me what I want compared to some who doesn't know anything about software development. That bias is probably present here in my prompts. Being able to test the app locally and iterate with ChatGPT to fix issues introduced (see #1) also made a huge difference.
+
+## ChatGPT: The dialogue
 The following is the dialogue that generated the code and the instructions to deploy it, in images:
 
 ![alt text](https://raw.githubusercontent.com/vmehmeri/chatGPT-cat-dog-voting-app/main/screenshots/1.jpg)
@@ -45,4 +51,5 @@ The following is the dialogue that generated the code and the instructions to de
 ![alt text](https://raw.githubusercontent.com/vmehmeri/chatGPT-cat-dog-voting-app/main/screenshots/19.jpg)
 ![alt text](https://raw.githubusercontent.com/vmehmeri/chatGPT-cat-dog-voting-app/main/screenshots/20.jpg)
 
-**Note: the only thing that I've changed was the port the app listens on to 8080 (instead of 3000)**
+**Note: the only thing that I've changed was the port the app listens on to 8080 (instead of 3000). I also provided the URLs for the images (cat and dog) myself, although ChatGPT did instruct on where they should go.**
+
